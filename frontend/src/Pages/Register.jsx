@@ -113,9 +113,9 @@ const register = () => {
             </div>
 
             <p className="w-full text-xs flex justify-between gap-2">
-              Don't have a account?{" "}
-              <Link to="/register" className="underline text-blue-600">
-                Register
+              have a account ?
+              <Link to="/login" className="underline text-blue-600">
+                Login
               </Link>
             </p>
 

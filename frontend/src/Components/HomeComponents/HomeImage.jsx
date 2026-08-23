@@ -1,6 +1,5 @@
 import React from "react";
 import coffeeImg from "../../Photos/coffee_img.png";
-console.log(coffeeImg);
 const HomeImage = () => {
   return (
     <div className="w-full h-[80vh] bg-text flex justify-center items-center bg-cover">

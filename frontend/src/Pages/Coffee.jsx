@@ -4,10 +4,10 @@ import Card from "../Components/Card";
 
 const Coffee = () => {
   return (
-    <div className="bg-text">
+    <div className="bg-text h-screen">
       <Navbar />
-      <div className="flex h-auto">
-        <div className="px-2 py-10 w-1/6 flex flex-col gap-10 bg-[#FED8B1]">
+      <div className="flex justify-between  ">
+        <div className="px-5 py-10 h-[86vh] w-2/9 flex flex-col gap-10 bg-[#FED8B1]">
           <div>
             <input
               type="text"
@@ -45,7 +45,7 @@ const Coffee = () => {
             </button>
           </div>
         </div>
-        <div className="px-3 py-2.5">
+        <div className="px-10 py-2.5 w-full">
           <Card />
         </div>
       </div>

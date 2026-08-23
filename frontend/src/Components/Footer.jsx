@@ -66,7 +66,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="flex gap-20">
-        <div className="text-text flex flex-col gap-3 ">
+        <div className="text-text w-1/4 flex flex-col gap-3 ">
           <p className="text-xl font-semibold">Quick Link</p>
           <div className="text-text/70">
             <p className="hover:underline transition-all cursor-pointer  ">
@@ -112,7 +112,7 @@ const Footer = () => {
               type="text"
               placeholder="Enter Email.."
             />
-            <button className="bg-yellow-500 px-5 rounded-r-md py-2">
+            <button className="bg-yellow-500 font-semibold px-5 rounded-r-md py-2">
               Submit
             </button>
           </div>
