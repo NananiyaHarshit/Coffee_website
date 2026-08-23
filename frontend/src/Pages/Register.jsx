@@ -1,10 +1,10 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Link , useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const register = () => {
-
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const {
     register,
@@ -14,8 +14,29 @@ const register = () => {
   } = useForm();
 
   const formHandle = (e) => {
-    console.log(e);
-    navigate('/')
+    // console.log(e);
+    const user = {
+      name: e.name,
+      email: e.email,
+      password: e.password,
+    };
+    // console.log(user);
+    const userList = JSON.parse(localStorage.getItem("user")) || [];
+
+    const isUserExits = userList.some((item) => item.email === e.email);
+
+    if (isUserExits) {
+      console.log("user is exist ");
+      toast.warning("User is exist")
+      return;
+    }
+    console.log("user is not Exist");
+    const newUser = [...userList, user];
+    // console.log(newUser);
+
+    localStorage.setItem("user", JSON.stringify(newUser));
+    toast.success("Register successfully !")
+    navigate('/login')
   };
 
   return (
@@ -24,7 +45,6 @@ const register = () => {
 
       <div className="z-10 absolute flex w-full bg-cover bg-bottom h-screen justify-center items-center px-4 sm:px-6 md:px-8">
         <div className="bg-button shadow-[0px_0px_30px_4px] shadow-background rounded-lg w-[95%] sm:w-[80%] md:w-[60%] lg:w-[40%] xl:w-[30%] h-auto py-8 sm:py-10 flex flex-col gap-7 justify-center items-center text-text">
-
           <p className="tracking-[2px] text-xl sm:text-2xl font-bold">
             Register From
           </p>
@@ -34,7 +54,6 @@ const register = () => {
             className="w-full flex flex-col gap-5 px-5 sm:px-8 md:px-10"
           >
             <div className="w-full flex flex-col gap-2">
-
               <input
                 type="text"
                 placeholder="Name"
@@ -99,17 +118,13 @@ const register = () => {
                     message: "password is must be 6 digit or character",
                   },
                   validate: (value) =>
-                    value == getValues("password") ||
-                    "Passwords do not match",
+                    value == getValues("password") || "Passwords do not match",
                 })}
               />
 
               <span className="text-xs text-red-500">
-                {errors.confirm_pwd && (
-                  <p>{errors.confirm_pwd.message}</p>
-                )}
+                {errors.confirm_pwd && <p>{errors.confirm_pwd.message}</p>}
               </span>
-
             </div>
 
             <p className="w-full text-xs flex justify-between gap-2">
@@ -122,7 +137,6 @@ const register = () => {
             <button className="bg-background font-semibold tracking-[3px] sm:tracking-[5px] border-2 border-text px-2 py-1 rounded-md w-full">
               Login
             </button>
-
           </form>
         </div>
       </div>

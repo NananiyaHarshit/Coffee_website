@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 const Login = () => {
   
   const navigate =  useNavigate()
@@ -11,8 +12,18 @@ const Login = () => {
   } = useForm();
 
   const formHandle = (e) => {
-    console.log(e);
-    navigate('/ ')
+    const userList = JSON.parse(localStorage.getItem('user')) 
+    const isUserExits = userList.some((item) => item.email === e.email && item.password === e.password);
+    if(isUserExits){
+      console.log("user Login ...");
+      sessionStorage.setItem("email",e.email);
+      toast.success("Login successfully!");
+      navigate('/ ')
+      return
+    }
+
+    console.log("Login fail");
+    toast.error("email or password is wrong !");
   };
 
   return (

@@ -6,7 +6,8 @@ import Register from './Pages/Register'
 import Coffee from './Pages/Coffee'
 import About from './Pages/About'
 import Contact from './Pages/Contact'
-
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const App = () => {
   return (
     <>
@@ -18,6 +19,7 @@ const App = () => {
         <Route path='/about' element={<About />} />
         <Route path='/contact' element={<Contact />}/>
       </Routes>
+      <ToastContainer position="bottom-right" autoClose={3000} />
     </>
   )
 }

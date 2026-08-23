@@ -7,7 +7,7 @@ import Footer from "../Components/Footer";
 
 const Home = () => {
   return (
-    <div className="">
+    <div className="overflow-hidden">
       <Navbar />
       <HomeImage />
       <div className="px-10 pt-10 bg-text">
