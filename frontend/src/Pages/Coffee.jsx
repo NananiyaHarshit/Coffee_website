@@ -1,8 +1,10 @@
 import React from "react";
 import Navbar from "../Components/Navbar";
 import Card from "../Components/Card";
+import { getHotCoffee } from "../API/coffee_API";
 
 const Coffee = () => {
+  getHotCoffee()
   return (
     <div className="bg-text h-screen">
       <Navbar />

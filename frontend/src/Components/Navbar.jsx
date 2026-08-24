@@ -29,7 +29,7 @@ const Navbar = () => {
         duration: 0.5,
         ease: "power3.out",
       })
-      .from(linksRef.current.children, {
+      .from(linksRef.current, {
        
         x: 30,
         opacity: 0,
@@ -73,7 +73,7 @@ const Navbar = () => {
               {user.name}
             </button>
           </div>
-        </div>
+        </div>  
         <div
           ref={menuRef}
           className="flex flex-col z-30 w-full absolute items-end"
@@ -82,7 +82,8 @@ const Navbar = () => {
             ref={linksRef}
             className="w-1/5 rounded-lg text-text bg-button flex flex-col justify-start items-start"
           >
-            <button className="px-5 py-2">Profile</button>
+            <Link to="/profile" className="px-5 py-2">Profile</Link>
+            <Link to="/cart" className="px-5 py-2">Cart</Link>
             <button
               onClick={() => {
                 setLogout((logout) => !logout);
