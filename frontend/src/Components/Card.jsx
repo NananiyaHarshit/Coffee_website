@@ -1,10 +1,12 @@
 import React, { useContext,useEffect } from "react";
 import { CoffeeContext } from "../context/CoffeeContext";
 
-const Card = () => {
+const Card = ({limit}) => {
+  console.log(limit);
+  
   const { hotCoffee, loading, error, fetchHotCoffee } = useContext(CoffeeContext);
   useEffect(() => {
-    fetchHotCoffee();
+    fetchHotCoffee(limit);
   }, []);
   console.log(loading);
   
@@ -27,11 +29,11 @@ const Card = () => {
         return (
           <div
             key={idx}
-            className="p-3 rounded-lg bg-background shadow-md hover:scale-101 transition-all shadow-button hover:shadow-lg flex text-text flex-col gap-2"
+            className="p-3 rounded-lg bg-background shadow-md hover:scale-101 shadow-button hover:shadow-lg flex text-text flex-col gap-2 "
           >
             <div className="w-full h-60">
               <img
-                className="w-full h-full object-center object-cover "
+                className="w-full h-full object-center object-cover hover:invert-0  transition-all  "
                 src={elem.image}
                 alt=""
               />

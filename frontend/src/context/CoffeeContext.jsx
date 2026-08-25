@@ -8,12 +8,12 @@ export const CoffeeProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const fetchHotCoffee = async () => {
+  const fetchHotCoffee = async (l) => {
     try {
       setLoading(true);
       setError(null);
 
-      const data = await getHotCoffee();
+      const data = await getHotCoffee(l);
 
       setHotCoffee(data);
       console.log(data);

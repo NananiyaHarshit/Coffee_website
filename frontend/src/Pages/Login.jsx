@@ -28,9 +28,9 @@ const Login = () => {
 
   return (
     <div>
-      <div className="bg-[url('https://i.pinimg.com/736x/65/cd/d1/65cdd1eceaf40f81cbc38d6851eb40e7.jpg')] w-full h-screen bg-bottom bg-cover z-0 absolute blur-xs"></div>
+      <div className="bg-[url('https://i.pinimg.com/736x/65/cd/d1/65cdd1eceaf40f81cbc38d6851eb40e7.jpg')] w-full h-screen bg-bottom bg-cover z-0 absolute blur-[2px]"></div>
       <div className=" z-10 absolute flex w-full bg-cover bg-bottom h-screen justify-center items-center ">
-        <div className="bg-button shadow-[0px_0px_30px_4px] shadow-background rounded-lg w-1/4 h-80 flex flex-col gap-7 justify-center items-center text-text">
+        <div className="backdrop-blur-xs shadow-[0px_0px_30px_4px] shadow-background rounded-lg w-1/4 h-80 flex flex-col gap-7 justify-center items-center text-text">
           <p className="tracking-[5px] text-2xl font-bold">Login From</p>
           <form
             onSubmit={handleSubmit(formHandle)}

@@ -18,7 +18,7 @@ const Favorites = () => {
         <p className="text-3xl font-bold"><ArrowRight /></p>
       </div>
       <div>
-        <Card />
+        <Card limit={3} />
       </div>
     </div>
   );
