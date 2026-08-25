@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../Components/Navbar";
 import Card from "../Components/Card";
 import { getHotCoffee } from "../API/coffee_API";
+import { useParams } from "react-router-dom";
 
 const Coffee = () => {
-  getHotCoffee()
+  getHotCoffee();
+
+
   return (
     <div className="bg-text h-screen">
       <Navbar />

@@ -20,13 +20,12 @@ export const CartProvider = ({ children }) => {
 
   const setCoffeeQuantity = (c) => {
     setQuantity(c)
-    console.log(quantity);
+
     
   }
 
     useEffect(() => {
-    console.log("Updated quantity:", quantity);
-     setTotalCartAmount(150 * quantity)
+       setTotalCartAmount(150 * quantity)
   }, [quantity]);
 
   const getTotalAmount = () => {

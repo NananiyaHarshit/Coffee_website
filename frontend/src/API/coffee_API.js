@@ -10,3 +10,8 @@ export const getOneCoffee = async () =>{
     const response = await axios.get(`${BASE_URL}/hot/13`)
     return response.data;
 }
+
+export const getCoffeeDetails = async (id) => {
+    const response = await axios.get(`${BASE_URL}/hot/${id}`)
+    return response.data;
+}

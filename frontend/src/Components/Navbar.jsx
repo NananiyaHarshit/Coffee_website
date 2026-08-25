@@ -61,7 +61,7 @@ const Navbar = () => {
           </div>
           <div className="flex gap-10 text-text">
             <Link to="/"> Home </Link>
-            <Link to="/coffee">Coffee</Link>
+            <Link to="/coffee">Coffee menu</Link>
             <Link to="/about">About</Link>
             <Link to="/contact">Contact</Link>
           </div>
