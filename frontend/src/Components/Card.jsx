@@ -10,7 +10,7 @@ const Card = ({ limit }) => {
 
   if (loading) {
     return (
-      <div className="w-full text-6xl h-[86vh] flex justify-center items-center">
+      <div className="w-full text-6xl h-[86vh] font-semibold text-button/50 flex justify-center items-center">
         Loading...
       </div>
     );

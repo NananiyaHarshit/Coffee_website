@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { LogOut, ShoppingBasket, User } from "lucide-react";
 gsap.registerPlugin(useGSAP);
 const Navbar = () => {
   const menuRef = useRef();
@@ -13,6 +14,7 @@ const Navbar = () => {
   const user = userList.find((item) => item.email === userEmail) || "";
   const linksRef = useRef();
   const tl = useRef();
+  const navigate = useNavigate()
 
   useGSAP(() => {
     gsap.set(menuRef.current, {
@@ -82,16 +84,17 @@ const Navbar = () => {
             ref={linksRef}
             className="w-1/5 rounded-lg text-text bg-button flex flex-col justify-start items-start"
           >
-            <Link to="/profile" className="px-5 py-2">Profile</Link>
-            <Link to="/cart" className="px-5 py-2">Cart</Link>
+            <Link to="/profile" className="px-5 py-2 flex gap-2 inset-ring-1 w-full"><User />Profile</Link>
+            <Link to="/cart" className="px-5 py-2 flex gap-2 inset-ring-1 w-full"><ShoppingBasket />Cart</Link>
             <button
               onClick={() => {
                 setLogout((logout) => !logout);
                 sessionStorage.clear();
+                navigate('/')
                 toast.success("logout successfully !");
               }}
-              className="px-5 py-2 rounded-lg text-text active:scale-95 active:bg-secondary/50 text-lg font-semibold "
-            >
+              className="px-5 py-2 flex gap-2 inset-ring-1 w-full rounded-b-lg text-text active:scale-95 active:bg-secondary/50 text-lg font-semibold "
+            ><LogOut />
               Logout
             </button>
           </div>

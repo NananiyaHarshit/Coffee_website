@@ -3,6 +3,7 @@ import Navbar from "../Components/Navbar";
 import Card from "../Components/Card";
 import { getHotCoffee } from "../API/coffee_API";
 import { useParams } from "react-router-dom";
+import Footer from "../Components/Footer";
 
 const Coffee = () => {
   getHotCoffee();
@@ -50,10 +51,11 @@ const Coffee = () => {
             </button>
           </div>
         </div>
-        <div className="px-10 py-2.5 w-full h-[86.3vh] overflow-y-scroll scroll-smooth scrollbar-thumb-background scrollbar-thin scrollbar-gutter-stable select-none">
+        <div className="px-10 py-2.5 w-full h-[85vh] overflow-y-scroll scroll-smooth scrollbar-thumb-background scrollbar-thin scrollbar-gutter-stable select-none">
           <Card limit={20} />
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

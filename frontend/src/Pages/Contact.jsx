@@ -3,6 +3,7 @@ import Navbar from "../Components/Navbar";
 import cold from "../Photos/download.png";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import Footer from "../Components/Footer";
 const Contact = () => {
   console.log(cold);
   const navigate = useNavigate();
@@ -92,6 +93,7 @@ const Contact = () => {
           <img className="w-full h-full" src={cold} alt="img" />
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
