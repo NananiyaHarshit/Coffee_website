@@ -56,7 +56,7 @@ const Navbar = () => {
         <div className="w-full h-20 overflow-hidden bg-background flex justify-between px-10 items-center">
           <div>
             <img
-              className="w-15 h-15 rounded-full"
+              className="w-15 h-15 rounded-full hover:animate-spin transition-all"
               src="https://i.pinimg.com/736x/65/e6/8a/65e68a09bb6549ad0439541fe702dc5e.jpg"
               alt="img"
             />
@@ -72,7 +72,7 @@ const Navbar = () => {
               className="px-5 rounded-lg text-text active:scale-95 active:bg-secondary/50 text-lg font-semibold"
               onClick={handleToggle}
             >
-              {user.name}
+              {user.email}
             </button>
           </div>
         </div>  

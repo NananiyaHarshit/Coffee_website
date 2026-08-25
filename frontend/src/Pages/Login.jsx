@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { CartContext } from "../context/CartContext";
 const Login = () => {
-  
-  const navigate =  useNavigate()
+  const { setUserEmail } = useContext(CartContext);
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -12,14 +13,17 @@ const Login = () => {
   } = useForm();
 
   const formHandle = (e) => {
-    const userList = JSON.parse(localStorage.getItem('user')) 
-    const isUserExits = userList.some((item) => item.email === e.email && item.password === e.password);
-    if(isUserExits){
+    const userList = JSON.parse(localStorage.getItem("user"));
+    const isUserExits = userList.some(
+      (item) => item.email === e.email && item.password === e.password,
+    );
+    if (isUserExits) {
       console.log("user Login ...");
-      sessionStorage.setItem("email",e.email);
+      sessionStorage.setItem("email", e.email);
       toast.success("Login successfully!");
-      navigate('/ ')
-      return
+      setUserEmail(e.email);
+      navigate("/");
+      return;
     }
 
     console.log("Login fail");
@@ -70,7 +74,9 @@ const Login = () => {
             </div>{" "}
             <p className="w-full text-xs flex justify-between">
               Don't have a account?{" "}
-              <Link to='/register' className="underline text-blue-600">Register</Link>
+              <Link to="/register" className="underline text-blue-600">
+                Register
+              </Link>
             </p>
             <button className="bg-background font-semibold tracking-[5px] border-2 border-text px-2 py-1 rounded-md">
               Login

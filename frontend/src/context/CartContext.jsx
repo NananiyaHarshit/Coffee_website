@@ -6,6 +6,9 @@ export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const [totalCartAmount, setTotalCartAmount] = useState(0);
 
+  // Get logged-in user's email
+  const [userEmail, setUserEmail] = useState(sessionStorage.getItem("email"));
+
   // Load logged-in user's cart
   const loadCart = () => {
     const email = sessionStorage.getItem("email");
@@ -17,11 +20,12 @@ export const CartProvider = ({ children }) => {
     setCart(userCart);
   };
 
-  // Load cart when Context starts
+  // Load cart when user changes
   useEffect(() => {
     loadCart();
-  }, []);
+  }, [userEmail]);
 
+  // Add to cart
   const addToCart = (details, quantity = 1) => {
     const email = sessionStorage.getItem("email");
 
@@ -34,7 +38,6 @@ export const CartProvider = ({ children }) => {
     let updatedCart;
 
     if (existingItem) {
-      // If coffee already exists, increase quantity
       updatedCart = allCart.map((item) => {
         if (item.email === email && item.details.id === details.id) {
           return {
@@ -46,7 +49,6 @@ export const CartProvider = ({ children }) => {
         return item;
       });
     } else {
-      // Add new coffee
       updatedCart = [
         ...allCart,
         {
@@ -59,13 +61,12 @@ export const CartProvider = ({ children }) => {
 
     localStorage.setItem("cart", JSON.stringify(updatedCart));
 
-    // IMPORTANT: update React state immediately
     const userCart = updatedCart.filter((item) => item.email === email);
 
     setCart(userCart);
   };
 
-  // Increase / decrease quantity
+  // Update quantity
   const updateQuantity = (productId, change) => {
     const email = sessionStorage.getItem("email");
 
@@ -82,10 +83,8 @@ export const CartProvider = ({ children }) => {
       return item;
     });
 
-    // Update localStorage
     localStorage.setItem("cart", JSON.stringify(updatedCart));
 
-    // Update React state
     const userCart = updatedCart.filter((item) => item.email === email);
 
     setCart(userCart);
@@ -101,10 +100,8 @@ export const CartProvider = ({ children }) => {
       (item) => !(item.email === email && item.details.id === productId),
     );
 
-    // Update localStorage
     localStorage.setItem("cart", JSON.stringify(updatedCart));
 
-    // Update React state
     const userCart = updatedCart.filter((item) => item.email === email);
 
     setCart(userCart);
@@ -121,11 +118,15 @@ export const CartProvider = ({ children }) => {
     <CartContext.Provider
       value={{
         cart,
-        loadCart,
         addToCart,
+        loadCart,
         updateQuantity,
         removeCartItem,
         totalCartAmount,
+
+        // important
+        userEmail,
+        setUserEmail,
       }}
     >
       {children}
