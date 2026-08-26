@@ -10,11 +10,6 @@ const Card = ({ limit, searchQuery, setSearchQuery }) => {
     fetchHotCoffee(limit);
   }, []);
 
-  const handleAddToCart = () => {
-    addToCart(details);
-    navigate("/cart");
-  };
-
   useEffect(() => {
     searchCoffee(searchQuery);
   }, [searchQuery]);

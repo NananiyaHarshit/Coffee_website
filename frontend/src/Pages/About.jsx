@@ -8,7 +8,7 @@ const About = () => {
       <Navbar />
       <div className="flex w-full h-[80%] justify-center items-center py-10">
         <div className="flex flex-col justify-center items-center w-full gap-7 ">
-          <p className="text-5xl font-semibold">
+          <p className="text-5xl font-semibold font-ranchers tracking-widest">
             About Us <span className="text-yellow-500">Our Story</span>
           </p>
           <p className="flex flex-col w-[70%] text-center gap-5 text-background font-semibold">

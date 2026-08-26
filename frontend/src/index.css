@@ -1,8 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Ranchers&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --color-text: #FFF8F0;
-  --color-background: #4B2E2B;
-  --color-button: #C08552;
-  --color-secondary: #8C5A3C;
+  --color-text: #fff8f0;
+  --color-background: #4b2e2b;
+  --color-button: #c08552;
+  --color-secondary: #8c5a3c;
+
+  --font-ranchers: "Ranchers", cursive;
+ 
 }

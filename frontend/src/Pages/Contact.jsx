@@ -23,7 +23,7 @@ const Contact = () => {
       <div className="flex w-full justify-center items-center">
         <div className="w-1/2 h-[86vh] flex flex-col justify-center gap-10 items-center">
           <div className="text-background w-full  gap-2 flex flex-col justify-start items-start px-20 ">
-            <p className="text-4xl font-semibold">Contact Us</p>
+            <p className="text-4xl font-semibold font-ranchers tracking-widest">Contact Us</p>
             <p className="text-yellow-500 font-semibold">
               LOREM IPSUM IS SIMPLY dummy text of the printing and type setting
               industry.

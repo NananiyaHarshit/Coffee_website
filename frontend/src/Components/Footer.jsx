@@ -6,7 +6,7 @@ const Footer = () => {
     <div className="bg-background w-full h-auto px-10 py-6 items-center flex text-text">
       <div className="flex flex-col gap-5 w-1/3  ">
         <div className="text-yellow-500 text-8xl font-mono">
-          <p>Brew</p>
+          <p className="font-ranchers">Brew</p>
         </div>
         <div>
           <p className=" w-1/2 text-wrap text-sm">

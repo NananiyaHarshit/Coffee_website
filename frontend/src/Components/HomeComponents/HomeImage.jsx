@@ -5,7 +5,7 @@ const HomeImage = () => {
     <div className="w-full h-[80vh] bg-text flex justify-center items-center bg-cover">
       <div className="w-1/2 flex flex-col justify-center items-center gap-10">
         <div>
-          <p className="text-7xl w-full text-left px-20 font-semibold">
+          <p className="text-7xl w-full text-left px-20 font-semibold font-ranchers">
             Brewed for the <span className="text-yellow-500">Bold.</span>
           </p>
           <p className="text-md w-full text-left px-20 font-semibold text-background">

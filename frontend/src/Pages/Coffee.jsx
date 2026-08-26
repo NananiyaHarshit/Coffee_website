@@ -24,7 +24,7 @@ const Coffee = () => {
               onChange={(e) => {
                 setSearchQuery(e.target.value);
               }}
-              className="border-2 w-full border-background rounded-md px-1 py-1  focus:outline-2 outline-background/50"
+              className="border-2 w-full border-background rounded-md px-1 py-1  focus:outline-2 outline-background/50 placeholder:font-semibold placeholder:tracking-widest"
               placeholder="Search..."
             />
           </div>
