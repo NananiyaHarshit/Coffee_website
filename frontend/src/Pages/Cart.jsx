@@ -3,11 +3,12 @@ import Navbar from "../Components/Navbar";
 import { FaceSlightlyFrowning, Minus, Plus } from "lucide-react";
 import { CartContext } from "../context/CartContext";
 import Footer from "../Components/Footer";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const { cart, updateQuantity, removeCartItem, totalCartAmount } =
     useContext(CartContext);
-
+  const navigate = useNavigate()
   return (
     <div className="bg-text w-full min-h-screen">
       <Navbar />
@@ -96,10 +97,13 @@ const Cart = () => {
             cart.length === 0 ? "" : "hidden"
           } flex w-full lg:w-[70%] flex-col gap-3 justify-center items-center bg-button/50 h-85 rounded-lg`}
         >
-          <div className="text-3xl font-semibold text-background flex flex-col justify-center items-center">
+          <div className="text-3xl font-semibold gap-2 text-background flex flex-col justify-center items-center">
             <FaceSlightlyFrowning size={50} />
 
             <p>Cart is Empty</p>
+            <button className="capitalize text-2xl font-semibold bg-button rounded-md shadow-sm shadow-background active:scale-99 px-6 py-1" onClick={()=>{
+              navigate('/coffee')
+            }}>Add coffee now</button>
           </div>
         </div>
 
