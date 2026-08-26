@@ -72,7 +72,7 @@ const Navbar = () => {
               className="px-5 rounded-lg text-text active:scale-95 active:bg-secondary/50 text-lg font-semibold"
               onClick={handleToggle}
             >
-              {user.email}
+              {user.name}
             </button>
           </div>
         </div>  
